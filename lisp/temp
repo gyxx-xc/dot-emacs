@@ -1,0 +1,30 @@
+(viper-change-state-to-emacs)
+(maybe-require-package 'key-chord)
+
+(setq viper-want-ctl-h-help 't)
+(setq viper-want-emacs-keys-in-insert 't)
+
+(setq case-fold-search 't)
+
+(defun viper-change-state-to-insert ()
+  "IMPORTANT: this function has been rewrited in custom-viper.el.
+
+Redirct the change to insert to turn off the viper mode, so that it
+will not effect some feature that the origin Emacs and additional
+plug-in have, espacilly for config that don't have the compatibility
+with viper." (progn (viper-change-state-to-emacs)))
+
+(defun viper-set-destructive-command (list)
+  (or (eq viper-intermediate-command 'viper-repeat)
+      (progn
+        (setq viper-d-com list)
+        (setcar (nthcdr 5 viper-d-com)
+                (viper-array-to-string (if (arrayp viper-this-command-keys)
+                                           viper-this-command-keys
+                                         (this-command-keys))))
+        (message "%s" 'viper-command-ring)
+        (viper-push-onto-ring viper-d-com 'viper-command-ring)))
+  (setq viper-this-command-keys nil))
+
+(key-chord-define (current-global-map) ",," 'viper-mode)
+(key-chord-mode 1)

@@ -1,0 +1,40 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Tue Nov  7 19:22:42 2023
+;; Desktop file format version 208
+;; Emacs version 29.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (25930 7682 415377 295000) (desktop . "208") "gyxx@kali" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-CTDB-Fira Code-medium-normal-normal-*-17-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "black") (background-color . "white") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tab-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (alpha-background) (no-focus-on-map) (no-accept-focus) (fullscreen . maximized) (visibility . t) (use-frame-synchronization) (skip-taskbar) (z-group) (display-type . color) (background-mode . light) (cursor-color . "black") (font-parameter) (sticky) (shaded) (environment) (last-focus-update . t) (dnd-root-window-position) (frameset--id . "1EF8-F807-7D79-A20F") (frameset--mini t . t) (height . 69) (width . 254) (modeline . t) (unsplittable) (left . 0) (top . 37) (icon-name) (display . ":1") (explicit-name)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 88) (min-pixel-width . 100) (min-pixel-height-ignore . 44) (min-pixel-width-ignore . 36) (min-pixel-height-safe . 22) (min-pixel-width-safe . 20)) leaf (pixel-width . 2560) (pixel-height . 1499) (total-width . 256) (total-height . 68) (normal-height . 1.0) (normal-width . 1.0) (buffer "custom-evil.el" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 176) (start . 1)) (prev-buffers ("*Warnings*" 256 318) ("*scratch*" 1 1))))])
+(setq desktop-missing-file-warning nil)
+(setq extended-command-history nil)
+(setq face-name-history nil)
+(setq file-name-history '("~/.emacs.d/lisp/" "~/.emacs.d/lisp/custom-evil.el"))
+(setq grep-find-history nil)
+(setq grep-history nil)
+(setq minibuffer-history nil)
+(setq query-replace-history nil)
+(setq read-expression-history nil)
+(setq regexp-history nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq search-ring nil)
+(setq shell-command-history nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/gyxx/.emacs.d/lisp/custom-evil.el"
+  "custom-evil.el"
+  'emacs-lisp-mode
+  '(font-lock-mode eldoc-mode)
+  176
+  '(176 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (buffer-display-time 25930 7680 160120 874000) (buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring nil)))
+
