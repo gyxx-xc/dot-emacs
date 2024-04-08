@@ -95,8 +95,8 @@
 (setq-default history-length 1000)
 (add-hook 'after-init-hook 'savehist-mode)
 
-(require-package 'session)
 
+(require-package 'session)
 (setq session-save-file (locate-user-emacs-file ".session"))
 (setq session-name-disable-regexp "\\(?:\\`'/tmp\\|\\.git/[A-Z_]+\\'\\)")
 (setq session-save-file-coding-system 'utf-8)
@@ -130,6 +130,12 @@
         (shell-command-history    . 50)
         tags-file-name
         tags-table-list))
+
+
+
+(require-package 'workgroups2)
+(require 'workgroups2)
+(workgroups-mode 1)
 
 (provide 'init-sessions)
 ;;; init-sessions.el ends here
