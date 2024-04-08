@@ -35,7 +35,6 @@
 (menu-bar-mode -1)
 
 ;; use the window action key to resize and drag
-
 (let ((no-title '(undecorated . t)))
   (add-to-list 'default-frame-alist no-title)
   (add-to-list 'initial-frame-alist no-title))
@@ -43,6 +42,10 @@
 (let ((no-border '(internal-border-width . 50)))
   (add-to-list 'default-frame-alist no-border)
   (add-to-list 'initial-frame-alist no-border))
+
+(setq-default line-spacing 0.11)
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (defun sanityinc/adjust-opacity (frame incr)
   "Adjust the background opacity of FRAME by increment INCR."

@@ -43,41 +43,46 @@
 (setq olivetti-body-width 0.85)
 (add-hook 'org-mode-hook 'olivetti-mode)
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(variable-pitch ((t (:weight normal :height 1.1 :width normal :family "ETBembo"))))
- '(fixed-pitch ((t (:family "Jetbrains Mono"))))
- '(org-block ((t (:inherit (shadow fixed-pitch)))))
- '(org-checkbox ((t (:foreground "Pink" :inherit (bold fixed-pitch)))))
- '(org-checkbox-statistics-done ((t (:inherit org-done))))
- '(org-code ((t (:inherit (shadow fixed-pitch)))))
- '(org-default ((t (:inherit variable-pitch :family "ETBembo"))))
- '(org-document-info ((t (:inherit fixed-pitch :foreground "pale turquoise"))))
- '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
- '(org-document-title ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo" :height 1.5 :underline nil))))
- '(org-done ((t (:inherit fixed-pitch :foreground "PaleGreen" :weight bold))))
- '(org-footnote ((t (:inherit variable-pitch :foreground "Cyan" :underline t))))
- '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
- '(org-level-1 ((t (:inherit variable-pitch :foreground "#c2c2b0" :slant italic :weight semi-light :height 1.75 :width normal :foundry "nil" :family "ETBembo"))))
- '(org-level-2 ((t (:inherit variable-pitch :foreground "#c2c2b0" :height 1.5 :width normal :foundry "nil" :family "ETBembo"))))
- '(org-level-3 ((t (:inherit variable-pitch :foreground "#b0a2e7" :slant italic :weight normal :height 1.25 :width normal :foundry "nil" :family "ETBembo"))))
- '(org-level-4 ((t (:inherit variable-pitch))))
- '(org-level-5 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo"))))
- '(org-level-6 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo"))))
- '(org-level-7 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo"))))
- '(org-level-8 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo"))))
- '(org-link ((t (:inherit (link variable-pitch) :slant normal))))
- '(org-list-dt ((t (:inherit fixed-pitch :foreground "#819cd6" :weight bold))))
- '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-property-value ((t (:inherit fixed-pitch))) t)
- '(org-quote ((t (:background "#32353f" :family "ETBembo"))))
- '(org-todo ((t (:inherit fixed-pitch :foreground "Pink" :weight bold))))
- '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
- '(org-verse ((t (:inherit fixed-pitch))))
- )
+(defun cuatom-org-theme-setup ()
+  "Set up org faces."
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(variable-pitch ((t (:weight normal :height 160 :width medium :font "ETBembo:spacing=110"))))
+   '(fixed-pitch ((t (:height 120 :family "Fira Code Medium"))))
+   '(org-block ((t (:inherit (shadow fixed-pitch)))))
+   '(org-checkbox ((t (:foreground "Pink" :inherit (bold fixed-pitch)))))
+   '(org-checkbox-statistics-done ((t (:inherit org-done))))
+   '(org-code ((t (:inherit (shadow fixed-pitch)))))
+   '(org-default ((t (:inherit variable-pitch :family "ETBembo"))))
+   '(org-document-info ((t (:inherit fixed-pitch :foreground "pale turquoise"))))
+   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+   '(org-document-title ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo" :height 1.5 :underline nil))))
+   '(org-done ((t (:inherit fixed-pitch :foreground "PaleGreen" :weight bold))))
+   '(org-footnote ((t (:inherit variable-pitch :foreground "Cyan" :underline t))))
+   '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+   '(org-level-1 ((t (:inherit variable-pitch :foreground "#c2c2b0" :slant italic :weight semi-light :height 1.75 :width normal :foundry "nil" :family "ETBembo"))))
+   '(org-level-2 ((t (:inherit variable-pitch :foreground "#c2c2b0" :height 1.5 :width normal :foundry "nil" :family "ETBembo"))))
+   '(org-level-3 ((t (:inherit variable-pitch :foreground "#b0a2e7" :slant italic :weight normal :height 1.25 :width normal :foundry "nil" :family "ETBembo"))))
+   '(org-level-4 ((t (:inherit variable-pitch))))
+   '(org-level-5 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo"))))
+   '(org-level-6 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo"))))
+   '(org-level-7 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo"))))
+   '(org-level-8 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "ETBembo"))))
+   '(org-link ((t (:inherit (link variable-pitch) :slant normal))))
+   '(org-list-dt ((t (:inherit fixed-pitch :foreground "#819cd6" :weight bold))))
+   '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-property-value ((t (:inherit fixed-pitch))) t)
+   '(org-quote ((t (:background "#32353f" :family "ETBembo"))))
+   '(org-todo ((t (:inherit fixed-pitch :foreground "Pink" :weight bold))))
+   '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+   '(org-verse ((t (:inherit fixed-pitch)))))
+  (setq line-spacing 0.3)
+  )
+(add-hook 'org-mode-hook 'cuatom-org-theme-setup)
+(add-hook 'org-mode-hook 'variable-pitch-mode)
 
 ;; Various preferences
 (setq org-startup-indented t

@@ -61,6 +61,8 @@
 (maybe-require-package 'scratch)
 (require-package 'command-log-mode)
 
+(require 'custom-help)
+
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)

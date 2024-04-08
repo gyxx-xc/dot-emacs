@@ -17,8 +17,8 @@
 
 (global-set-key (kbd "C-x C-d") 'desktop+-load-or-create)
 
+
 ;; borrow from https://github.com/jimeh/.emacs.d/blob/master/modules/workspaces/siren-desktop.el
-
 (defun siren-desktop+--list-filter-item (path)
   (let ((basename (file-name-nondirectory path))
         (is-dir (car (file-attributes path))))
@@ -50,7 +50,7 @@
       (if (not (string= name (siren-desktop+-current-desktop)))
           (desktop+-load name))
     (desktop+-create name)))
-
+
 (defun custom/empty-desktop (IGNORE)
   (desktop-clear))
 (advice-add 'desktop+-create :after 'custom/empty-desktop)
@@ -66,6 +66,8 @@
                 nil (expand-file-name custom/last-desktop-filename desktop+-base-dir))
   )
 (advice-add 'kill-emacs :before 'custom/store-defult-desktop)
+
+
 
 (defun sanityinc/desktop-time-restore (orig &rest args)
   (let ((start-time (current-time)))
@@ -93,41 +95,41 @@
 (setq-default history-length 1000)
 (add-hook 'after-init-hook 'savehist-mode)
 
-;; (require-package 'session)
+(require-package 'session)
 
-;; (setq session-save-file (locate-user-emacs-file ".session"))
-;; (setq session-name-disable-regexp "\\(?:\\`'/tmp\\|\\.git/[A-Z_]+\\'\\)")
-;; (setq session-save-file-coding-system 'utf-8)
+(setq session-save-file (locate-user-emacs-file ".session"))
+(setq session-name-disable-regexp "\\(?:\\`'/tmp\\|\\.git/[A-Z_]+\\'\\)")
+(setq session-save-file-coding-system 'utf-8)
 
-;; (add-hook 'after-init-hook 'session-initialize)
+(add-hook 'after-init-hook 'session-initialize)
 
-;; ;; save a bunch of variables to the desktop file
-;; ;; for lists specify the len of the maximal saved data also
-;; (setq desktop-globals-to-save nil
-;;       '((comint-input-ring        . 50)
-;;         (compile-history          . 30)
-;;         desktop-missing-file-warning
-;;         (dired-regexp-history     . 20)
-;;         (extended-command-history . 30)
-;;         (face-name-history        . 20)
-;;         (file-name-history        . 100)
-;;         (grep-find-history        . 30)
-;;         (grep-history             . 30)
-;;         (ivy-history              . 100)
-;;         (magit-revision-history   . 50)
-;;         (minibuffer-history       . 50)
-;;         (org-clock-history        . 50)
-;;         (org-refile-history       . 50)
-;;         (org-tags-history         . 50)
-;;         (query-replace-history    . 60)
-;;         (read-expression-history  . 60)
-;;         (regexp-history           . 60)
-;;         (regexp-search-ring       . 20)
-;;         register-alist
-;;         (search-ring              . 20)
-;;         (shell-command-history    . 50)
-;;         tags-file-name
-;;         tags-table-list))
+;; save a bunch of variables to the desktop file
+;; for lists specify the len of the maximal saved data also
+(setq desktop-globals-to-save nil
+      '((comint-input-ring        . 50)
+        (compile-history          . 30)
+        desktop-missing-file-warning
+        (dired-regexp-history     . 20)
+        (extended-command-history . 30)
+        (face-name-history        . 20)
+        (file-name-history        . 100)
+        (grep-find-history        . 30)
+        (grep-history             . 30)
+        (ivy-history              . 100)
+        (magit-revision-history   . 50)
+        (minibuffer-history       . 50)
+        (org-clock-history        . 50)
+        (org-refile-history       . 50)
+        (org-tags-history         . 50)
+        (query-replace-history    . 60)
+        (read-expression-history  . 60)
+        (regexp-history           . 60)
+        (regexp-search-ring       . 20)
+        register-alist
+        (search-ring              . 20)
+        (shell-command-history    . 50)
+        tags-file-name
+        tags-table-list))
 
 (provide 'init-sessions)
 ;;; init-sessions.el ends here
