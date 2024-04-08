@@ -105,7 +105,7 @@
 
 ;; save a bunch of variables to the desktop file
 ;; for lists specify the len of the maximal saved data also
-(setq desktop-globals-to-save nil
+(setq desktop-globals-to-save
       '((comint-input-ring        . 50)
         (compile-history          . 30)
         desktop-missing-file-warning
