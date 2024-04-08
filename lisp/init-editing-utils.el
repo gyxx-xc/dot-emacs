@@ -156,9 +156,11 @@
 
 (require-package 'multiple-cursors)
 ;; multiple-cursors
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "M-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "M->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'beginning-of-buffer)
+(global-set-key (kbd "C->") 'end-of-buffer)
+(global-set-key (kbd "C-c M-<") 'mc/mark-all-like-this)
 
 ;; Train myself to use M-f and M-b instead
 (global-unset-key [M-left])
