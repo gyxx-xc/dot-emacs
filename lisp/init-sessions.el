@@ -131,6 +131,8 @@
         tags-file-name
         tags-table-list))
 
+;; TODO: modify desktop-buffer-mode-handlers to restore shell buffers
+
 
 (save-place-mode 1)
 

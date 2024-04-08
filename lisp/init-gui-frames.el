@@ -89,5 +89,17 @@
 
 (require-package 'disable-mouse)
 
+(require-package 'hl-todo)
+(require 'hl-todo)
+(global-hl-todo-mode)
+(setq hl-todo-keyword-faces
+      '(("TODO"   . "#99cc99")
+        ("FIXME"  . "#ff3300")
+        ("DEBUG"  . "#cc66cc")
+        ("GOTCHA" . "#f2777a")
+        ("STUB"   . "#66cccc")
+        ("MIKU"   . "#39c5bb")
+        ("LTY"    . "#66ccff"))) ;; what is lty???
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here

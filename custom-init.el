@@ -63,6 +63,7 @@
 
 (require 'custom-help)
 
+;; TODO: mode line
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)
@@ -75,7 +76,6 @@
 (require 'init-ibuffer)
 (require 'init-flymake)
 (require 'init-eglot)
-(require 'custom-everywhere)
 
 (require 'init-recentf)
 (require 'init-minibuffer)
@@ -84,6 +84,7 @@
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-mmm)
+(require 'custom-everywhere)
 
 (require 'init-editing-utils)
 (require 'init-whitespace)
