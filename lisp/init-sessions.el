@@ -8,8 +8,8 @@
 ;; save a list of open files in ~/.emacs.d/.emacs.desktop
 (defvar custom/last-desktop-filename ".last-desktop.el")
 
-(setq desktop-restore-frames nil)
-(setq desktop-auto-save-timeout 60)
+(setq desktop-restore-frames t)
+(setq desktop-auto-save-timeout 30)
 (setq desktop-path (list user-emacs-directory))
 (if (file-exists-p (expand-file-name custom/last-desktop-filename desktop+-base-dir))
     (load (expand-file-name custom/last-desktop-filename desktop+-base-dir)))
@@ -132,10 +132,7 @@
         tags-table-list))
 
 
-
-(require-package 'workgroups2)
-(require 'workgroups2)
-(workgroups-mode 1)
+(save-place-mode 1)
 
 (provide 'init-sessions)
 ;;; init-sessions.el ends here

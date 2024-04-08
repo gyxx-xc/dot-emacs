@@ -75,6 +75,18 @@
 (require-package 'default-text-scale)
 (add-hook 'after-init-hook 'default-text-scale-mode)
 
+(require-package 'pulsar)
+(require 'pulsar)
+
+(pulsar-global-mode 1)
+(let ((map global-map))
+  (define-key map (kbd "C-c h p") #'pulsar-pulse-line)
+  (define-key map (kbd "C-c h h") #'pulsar-highlight-line))
+
+(require-package 'volatile-highlights)
+(require 'volatile-highlights)
+(volatile-highlights-mode t)
+
 (require-package 'disable-mouse)
 
 (provide 'init-gui-frames)

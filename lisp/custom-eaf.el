@@ -28,8 +28,9 @@
 ;; (require 'eaf-vue-tailwindcss)
 
 (setq eaf-pdf-dark-mode nil)
-
 (setq eaf-pdf-notify-file-changed nil)
+
+(setq eaf-browser-dark-mode nil)
 
 (provide 'custom-eaf)
 ;;; custom-eaf.el ends here
