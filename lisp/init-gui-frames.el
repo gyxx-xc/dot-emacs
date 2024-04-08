@@ -3,15 +3,8 @@
 ;;; Code:
 
 
-;; Stop C-z from minimizing windows under OS X
-
-(defun sanityinc/maybe-suspend-frame ()
-  (interactive)
-  (unless window-system
-    (suspend-frame)))
-
-(global-set-key (kbd "C-z") 'sanityinc/maybe-suspend-frame)
-
+;; Stop C-z from minimizing windows
+(global-set-key (kbd "C-z") nil)
 
 
 ;; Suppress GUI features
@@ -47,6 +40,8 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+
+
 (defun sanityinc/adjust-opacity (frame incr)
   "Adjust the background opacity of FRAME by increment INCR."
   (unless (display-graphic-p frame)
@@ -75,37 +70,12 @@
 (global-set-key (kbd "M-C-9") (lambda () (interactive) (sanityinc/adjust-opacity nil 2)))
 (global-set-key (kbd "M-C-7") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 100)))))
 
-
-(when *is-a-mac*
-  (when (maybe-require-package 'ns-auto-titlebar)
-    (ns-auto-titlebar-mode)))
-
-
-(setq frame-title-format
-      '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
-                 "%b"))))
-
-;; Non-zero values for `line-spacing' can mess up ansi-term and co,
-;; so we zero it explicitly in those cases.
-(add-hook 'term-mode-hook
-          (lambda ()
-            (setq line-spacing 0)))
-
 
 ;; Change global font size easily
-
 (require-package 'default-text-scale)
 (add-hook 'after-init-hook 'default-text-scale-mode)
 
-
-
 (require-package 'disable-mouse)
-
-
-;; (when (fboundp 'pixel-scroll-precision-mode)
-;;   (pixel-scroll-precision-mode))
-
 
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
