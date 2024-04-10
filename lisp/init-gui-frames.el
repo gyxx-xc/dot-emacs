@@ -38,7 +38,7 @@
 
 (setq-default line-spacing 0.11)
 
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 
 
@@ -79,9 +79,13 @@
 (require 'pulsar)
 
 (pulsar-global-mode 1)
-(let ((map global-map))
-  (define-key map (kbd "C-c h p") #'pulsar-pulse-line)
-  (define-key map (kbd "C-c h h") #'pulsar-highlight-line))
+
+(advice-add 'switch-window :after 'pulsar-pulse-line)
+
+(when (maybe-require-package 'key-chord)
+  (key-chord-mode 1)
+  (key-chord-define-global "``" 'pulsar-pulse-line))
+
 
 (require-package 'volatile-highlights)
 (require 'volatile-highlights)
@@ -100,6 +104,9 @@
         ("STUB"   . "#66cccc")
         ("MIKU"   . "#39c5bb")
         ("LTY"    . "#66ccff"))) ;; what is lty???
+
+(require-package 'minimap)
+(require 'minimap)
 
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
