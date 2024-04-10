@@ -3,44 +3,53 @@
 ;;; Code:
 
 
-(when (maybe-require-package 'vertico)
-  (add-hook 'after-init-hook 'vertico-mode)
+(require-package 'vertico)
 
-  (when (maybe-require-package 'embark)
-    (with-eval-after-load 'vertico
-      (define-key vertico-map (kbd "C-c C-o") 'embark-export)
-      (define-key vertico-map (kbd "C-c C-c") 'embark-act)))
+(require 'vertico)
+(add-hook 'after-init-hook 'vertico-mode)
+(setq vertico-count 17
+      vertico-cycle t)
+(add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+(add-hook 'minibuffer-setup-hook #'vertico-repeat-save)
+(define-key vertico-map (kbd "DEL") 'vertico-directory-delete-char)
 
-  (when (maybe-require-package 'consult)
-    (defmacro sanityinc/no-consult-preview (&rest cmds)
-      `(with-eval-after-load 'consult
-         (consult-customize ,@cmds :preview-key "M-P")))
+;; embark
+(when (maybe-require-package 'embark)
+  (with-eval-after-load 'vertico
+    (define-key vertico-map (kbd "C-c C-o") 'embark-export)
+    (define-key vertico-map (kbd "C-c C-c") 'embark-act)))
 
-    (sanityinc/no-consult-preview
-     consult-ripgrep
-     consult-git-grep consult-grep
-     consult-bookmark consult-recent-file consult-xref
-     consult--source-recent-file consult--source-project-recent-file consult--source-bookmark)
+;; consult
+(when (maybe-require-package 'consult)
+  (defmacro sanityinc/no-consult-preview (&rest cmds)
+    `(with-eval-after-load 'consult
+       (consult-customize ,@cmds :preview-key "M-P")))
 
-    (when (and (executable-find "rg"))
-      (defun sanityinc/consult-ripgrep-at-point (&optional dir initial)
-        (interactive (list prefix-arg (when-let ((s (symbol-at-point)))
-                                        (symbol-name s))))
-        (consult-ripgrep dir initial))
-      (sanityinc/no-consult-preview sanityinc/consult-ripgrep-at-point)
-      (global-set-key (kbd "M-?") 'sanityinc/consult-ripgrep-at-point))
+  (sanityinc/no-consult-preview
+   consult-ripgrep
+   consult-git-grep consult-grep
+   consult-bookmark consult-recent-file consult-xref
+   consult--source-recent-file consult--source-project-recent-file consult--source-bookmark)
 
-    (global-set-key [remap switch-to-buffer] 'consult-buffer)
-    (global-set-key [remap switch-to-buffer-other-window] 'consult-buffer-other-window)
-    (global-set-key [remap switch-to-buffer-other-frame] 'consult-buffer-other-frame)
-    (global-set-key [remap goto-line] 'consult-goto-line)
+  (when (and (executable-find "rg"))
+    (defun sanityinc/consult-ripgrep-at-point (&optional dir initial)
+      (interactive (list prefix-arg (when-let ((s (symbol-at-point)))
+                                      (symbol-name s))))
+      (consult-ripgrep dir initial))
+    (sanityinc/no-consult-preview sanityinc/consult-ripgrep-at-point)
+    (global-set-key (kbd "M-?") 'sanityinc/consult-ripgrep-at-point))
+
+  (global-set-key [remap switch-to-buffer] 'consult-buffer)
+  (global-set-key [remap switch-to-buffer-other-window] 'consult-buffer-other-window)
+  (global-set-key [remap switch-to-buffer-other-frame] 'consult-buffer-other-frame)
+  (global-set-key [remap goto-line] 'consult-goto-line)
 
 
 
-    (when (maybe-require-package 'embark-consult)
-      (with-eval-after-load 'embark
-        (require 'embark-consult)
-        (add-hook 'embark-collect-mode-hook 'embark-consult-preview-minor-mode)))))
+  (when (maybe-require-package 'embark-consult)
+    (with-eval-after-load 'embark
+      (require 'embark-consult)
+      (add-hook 'embark-collect-mode-hook 'embark-consult-preview-minor-mode))))
 
 (when (maybe-require-package 'marginalia)
   (add-hook 'after-init-hook 'marginalia-mode))
