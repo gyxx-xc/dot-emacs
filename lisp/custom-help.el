@@ -10,5 +10,10 @@
 (global-set-key (kbd "C-h k") #'helpful-key)
 (global-set-key (kbd "C-h x") #'helpful-command)
 
+;; https://github.com/Wilfred/helpful/issues/236
+;; start info-lookup in init instead of lazy loading
+(require 'info-look)
+(info-lookup-setup-mode 'symbol 'emacs-lisp-mode)
+
 (provide 'custom-help)
 ;;; init-mmm.el ends here
