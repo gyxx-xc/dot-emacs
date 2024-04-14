@@ -85,6 +85,7 @@
 (require 'init-sessions)
 (require 'init-mmm)
 (require 'custom-everywhere)
+(require 'custom-translate)
 
 (require 'init-editing-utils)
 (require 'init-whitespace)

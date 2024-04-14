@@ -108,5 +108,8 @@
 (require-package 'minimap)
 (require 'minimap)
 
+(require-package 'posframe)
+(require 'posframe)
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
