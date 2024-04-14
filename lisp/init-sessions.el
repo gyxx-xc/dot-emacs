@@ -6,13 +6,13 @@
 (require 'desktop+)
 
 ;; save a list of open files in ~/.emacs.d/.emacs.desktop
-(defvar custom/last-desktop-filename ".last-desktop.el")
+(defvar mystic/last-desktop-filename ".last-desktop.el")
 
 (setq desktop-restore-frames t)
 (setq desktop-auto-save-timeout 30)
 (setq desktop-path (list user-emacs-directory))
-(if (file-exists-p (expand-file-name custom/last-desktop-filename desktop+-base-dir))
-    (load (expand-file-name custom/last-desktop-filename desktop+-base-dir)))
+(if (file-exists-p (expand-file-name mystic/last-desktop-filename desktop+-base-dir))
+    (load (expand-file-name mystic/last-desktop-filename desktop+-base-dir)))
 (desktop-save-mode 1)
 
 (global-set-key (kbd "C-x C-d") 'desktop+-load-or-create)
@@ -51,21 +51,21 @@
           (desktop+-load name))
     (desktop+-create name)))
 
-(defun custom/empty-desktop (IGNORE)
+(defun mystic/empty-desktop (IGNORE)
   (desktop-clear))
-(advice-add 'desktop+-create :after 'custom/empty-desktop)
+(advice-add 'desktop+-create :after 'mystic/empty-desktop)
 
-(defun custom/set-defult-desktop (dir)
+(defun mystic/set-defult-desktop (dir)
   (setq desktop-path (list dir))
   )
-;; (advice-add 'desktop-change-dir :after 'custom/set-defult-desktop)
+;; (advice-add 'desktop-change-dir :after 'mystic/set-defult-desktop)
 
-(defun custom/store-defult-desktop (return restart)
+(defun mystic/store-defult-desktop (return restart)
   (write-region (format "(setq desktop-path (list \"%s\"))\n"
                         (desktop+--dirname (siren-desktop+-current-desktop)))
-                nil (expand-file-name custom/last-desktop-filename desktop+-base-dir))
+                nil (expand-file-name mystic/last-desktop-filename desktop+-base-dir))
   )
-(advice-add 'kill-emacs :before 'custom/store-defult-desktop)
+(advice-add 'kill-emacs :before 'mystic/store-defult-desktop)
 
 
 
