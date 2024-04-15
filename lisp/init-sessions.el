@@ -131,7 +131,24 @@
         tags-file-name
         tags-table-list))
 
+
 ;; TODO: modify desktop-buffer-mode-handlers to restore shell buffers
+
+(defun mystic/eaf-mode-hook ()
+  (setq desktop-save-buffer #'mystic/eaf-save-buffer))
+(defun mystic/eaf-save-buffer (dirname)
+  "Save eaf-pdf-viewer buffer."
+  (list :url (eaf-get-path-or-url)
+        :app-name eaf--buffer-app-name
+        :args eaf--buffer-args)
+  )
+(defun mystic/eaf-restore-buffer (file-name buffer-name misc)
+  "Restore eaf-pdf-viewer buffer."
+  (eaf-open (plist-get misc :url))
+  (rename-buffer buffer-name)
+  )
+;; (add-hook 'eaf-mode-hook 'mystic/eaf-mode-hook)
+;; (add-to-list 'desktop-buffer-mode-handlers '(eaf-mode . mystic/eaf-restore-buffer))
 
 
 (save-place-mode 1)
