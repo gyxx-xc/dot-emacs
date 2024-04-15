@@ -143,6 +143,16 @@
   (add-hook 'after-init-hook 'repeat-mode))
 
 
+
+(require-package 'crux)
+(require 'crux)
+
+(global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+(global-set-key [remap upcase-region] #'crux-upcase-region)
+(global-set-key [remap downcase-region] #'crux-downcase-region)
+(global-set-key (kbd "C-<backspace>") #'crux-kill-line-backwards)
+
+
 ;;; Handy key bindings
 
 (with-eval-after-load 'help
@@ -162,10 +172,6 @@
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-c M-<") 'mc/mark-all-like-this)
 
-;; Train myself to use M-f and M-b instead
-(global-unset-key [M-left])
-(global-unset-key [M-right])
-
 (defun kill-back-to-indentation ()
   "Kill from point back to the first non-whitespace character on the line."
   (interactive)
@@ -174,7 +180,6 @@
     (kill-region (point) prev-pos)))
 
 (global-set-key (kbd "C-M-<backspace>") 'kill-back-to-indentation)
-
 
 
 ;;; Page break lines
