@@ -76,6 +76,7 @@
 (require 'init-ibuffer)
 (require 'init-flymake)
 (require 'init-eglot)
+(require 'mystic-modeline)
 
 (require 'init-recentf)
 (require 'init-minibuffer)
