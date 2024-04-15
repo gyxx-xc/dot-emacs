@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+;; hack gts-implements.el 162, remove evil
 (require-package 'go-translate)
 (require 'go-translate)
 

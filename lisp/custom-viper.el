@@ -12,13 +12,14 @@
 
 (key-chord-define-global ",," 'turn-on-evil-mode)
 
-(defun evil-insert-state (num)
+(defun mystic/quit-evil (num)
   "IMPORTANT: this function has been rewrited in custom-viper.el.
 
 It should not become a function, thought it *look like* control
 the insert state by NUM.  When NUM is 1, the insert state is on.
 Over write it can make the insert state being totally Emacsversion."
   (if (eq num 1) (turn-off-evil-mode)))
+(advice-add 'evil-insert-state :override #'mystic/quit-evil)
 
 (key-chord-mode 1)
 
