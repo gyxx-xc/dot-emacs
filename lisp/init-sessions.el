@@ -95,7 +95,6 @@
 (setq-default history-length 1000)
 (add-hook 'after-init-hook 'savehist-mode)
 
-
 (require-package 'session)
 (setq session-save-file (locate-user-emacs-file ".session"))
 (setq session-name-disable-regexp "\\(?:\\`'/tmp\\|\\.git/[A-Z_]+\\'\\)")
@@ -147,11 +146,12 @@
   (eaf-open (plist-get misc :url))
   (rename-buffer buffer-name)
   )
+
 ;; (add-hook 'eaf-mode-hook 'mystic/eaf-mode-hook)
 ;; (add-to-list 'desktop-buffer-mode-handlers '(eaf-mode . mystic/eaf-restore-buffer))
 
 
-(save-place-mode 1)
+;;(save-place-mode 1)
 
 (provide 'init-sessions)
 ;;; init-sessions.el ends here

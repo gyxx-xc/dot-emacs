@@ -77,6 +77,7 @@
 (require 'init-flymake)
 (require 'init-eglot)
 (require 'mystic-modeline)
+(require 'mystic-highlight)
 
 (require 'init-recentf)
 (require 'init-minibuffer)
