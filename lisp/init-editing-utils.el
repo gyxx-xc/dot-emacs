@@ -42,7 +42,6 @@
 
 (add-hook 'after-init-hook 'transient-mark-mode)
 
-
 
 ;; Huge files
 
