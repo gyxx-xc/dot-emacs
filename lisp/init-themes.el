@@ -22,6 +22,12 @@
 
 (add-hook 'after-init-hook 'reapply-themes)
 
+
+;; Some other themes for fun
+
+(require-package 'tron-legacy-theme)
+(require-package 'moe-theme)
+(require-package 'ef-themes) ; ef-rosa (pink)
 
 
 ;; Toggle between light and dark
