@@ -9,6 +9,7 @@
 (setq doom-modeline-buffer-file-name-style 'auto)
 (setq doom-modeline-check-icon nil)
 (setq doom-modeline-check-simple-format t)
+(setq doom-modeline-enable-word-count t)
 
 (provide 'mystic-modeline)
 ;;; mystic-modeline.el ends here
