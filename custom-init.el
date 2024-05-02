@@ -147,8 +147,10 @@
 (require 'init-spelling)
 
 (require 'init-misc)
+(require 'mystic-fun)
 
-(require 'custom-eaf)
+(require 'mystic-exwm)
+ (require 'custom-eaf)
 
 (require 'init-folding)
 (require 'init-dash)
