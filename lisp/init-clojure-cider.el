@@ -11,8 +11,7 @@
 
   (with-eval-after-load 'cider
     (add-hook 'cider-repl-mode-hook 'subword-mode)
-    ;; (add-hook 'cider-repl-mode-hook 'paredit-mode)
-    )
+    (add-hook 'cider-repl-mode-hook 'paredit-mode))
 
   (require-package 'flycheck-clojure)
   (with-eval-after-load 'clojure-mode
