@@ -265,8 +265,6 @@ ORIG is the advised function, which is called with its ARGS."
 
 (advice-add 'kmacro-call-macro :around 'sanityinc/disable-features-during-macro-call)
 
-
-(start-process-shell-command "touchpadCtrl" nil "echo 123456 | sudo -S touchpadCtrl")
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
