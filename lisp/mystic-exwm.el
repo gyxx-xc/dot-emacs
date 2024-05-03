@@ -82,8 +82,16 @@ You can find the original one at `exwm-config-ido-buffer-window-other-frame'."
   (ido-mode 1)
   (add-hook 'exwm-init-hook #'exwm-config--fix/ido-buffer-window-other-frame))
 
+
+(defun mystic-exwm-init ()
+  "Spcial setup for exwm."
+  (advice-add #'doom-modeline--font-height :override (lambda () 18))
+  (setq doom-modeline-height 18)
+  )
+(add-hook 'exwm-init-hook #'mystic-exwm-init)
+
 ;; Enable EXWM
-;; (exwm-enable)
+(exwm-enable)
 
 (provide 'mystic-exwm)
 ;;; mystic-exwm.el ends here
