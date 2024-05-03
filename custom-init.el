@@ -53,18 +53,14 @@
 (setq jit-lock-defer-time 0)
 
 
-;; Allow users to provide an optional "init-preload-local.el"
-(require 'init-preload-local nil t)
-
 ;; Load configs for specific features and modes
 (require-package 'diminish)
 (maybe-require-package 'scratch)
 (require-package 'command-log-mode)
 
 (require 'custom-help)
+(require 'init-ledger)
 
-;; TODO: mode line
-(require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)
 (require 'init-osx-keys)
@@ -86,6 +82,9 @@
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-mmm)
+(require 'init-folding)
+(require 'init-dash)
+(require 'init-terminals)
 (require 'custom-everywhere)
 (require 'custom-translate)
 
@@ -131,6 +130,12 @@
 (require 'init-docker)
 (require 'init-terraform)
 (require 'init-nix)
+(require 'init-lua)
+(require 'init-uiua)
+(require 'init-lisp)
+(require 'init-sly)
+(require 'init-clojure)
+(require 'init-clojure-cider)
 (require 'custom-shader)
 (require 'custom-tex)
 (require 'custom-wenyan)
@@ -139,26 +144,13 @@
 (maybe-require-package 'justl)
 
 ;;(require 'init-paredit)
-(require 'init-lisp)
-(require 'init-sly)
-(require 'init-clojure)
-(require 'init-clojure-cider)
-
 (require 'init-spelling)
 
 (require 'init-misc)
 (require 'mystic-fun)
 
 (require 'mystic-exwm)
- (require 'custom-eaf)
-
-(require 'init-folding)
-(require 'init-dash)
-
-(require 'init-ledger)
-(require 'init-lua)
-(require 'init-uiua)
-(require 'init-terminals)
+(require 'custom-eaf)
 
 ;; Extra packages which don't require any configuration
 

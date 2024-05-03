@@ -14,7 +14,7 @@
 
 (setq copilot-enable-predicates (list 'copilot--buffer-changed))
 (define-key copilot-mode-map (kbd "C-c <tab>") 'copilot-accept-completion)
-(define-key copilot-mode-map (kbd "C-c f") 'repeatable-copilot-accept-completion-by-word)
+(define-key copilot-mode-map (kbd "C-c w") 'repeatable-copilot-accept-completion-by-word)
 (define-key copilot-mode-map (kbd "C-c n") 'copilot-next-completion)
 
 (defun repeat-command (command)
